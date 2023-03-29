@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import InboxSearch from '../atoms/InboxSearch'
 import QuickButton from '../atoms/QuickButton'
 import ActionModalLayout from '../layout/ActionModalLayout'
+import InboxModal from '../molecules/InboxModal'
 
 function Slide3() {
     const [showSubMenu, setShowSubMenu] = useState(false)
@@ -31,9 +33,7 @@ function Slide3() {
         <>
             {selected.isSelected && selected.selectedMenu === "inbox" ?
                 <>
-                    <ActionModalLayout>
-                        inbox
-                    </ActionModalLayout>
+                    <InboxModal />
                 </>
                 :
                 null
@@ -47,7 +47,7 @@ function Slide3() {
                 :
                 null
             }
-            <div className='flex flex-row items-center float-right'>
+            <div className='flex flex-row items-center justify-between float-right mt-[15px]'>
                 {
                     showSubMenu &&
                     <>
@@ -66,7 +66,7 @@ function Slide3() {
                         <QuickButton
                             size={selected.selectedMenu === "inbox" ? "big" : "small"}
                             status={selected.selectedMenu === "inbox" ? "active" : "inactive"}
-                            className="bg-[#8785FF]"
+                            className="bg-[#8785FF] ml-[26px]"
                             onClick={() => handleSubMenu("inbox")}
                         >
                             {/* inbox inactive */}
@@ -82,7 +82,7 @@ function Slide3() {
                         <>
                             <QuickButton
                                 size="big"
-                                className="bg-[#2F80ED]"
+                                className="bg-[#2F80ED] ml-[26px]"
                                 onClick={() => setShowSubMenu(!showSubMenu)}
                             >
                                 {/* default */}
