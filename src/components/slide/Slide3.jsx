@@ -27,7 +27,6 @@ function Slide3() {
         setSelected({ isSelected: false, selectedMenu: undefined })
     }
 
-    console.log()
 
     return (
         <>
