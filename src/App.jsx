@@ -1,10 +1,11 @@
 import './App.css'
 import Slide2 from './components/slide/Slide2'
+import Slide3 from './components/slide/Slide3'
 
 function App() {
   return (
     <main className="App relative">
-      <Slide2 />
+      <Slide3 />
     </main>
   )
 }
