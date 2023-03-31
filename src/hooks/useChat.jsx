@@ -15,7 +15,7 @@ function useChat() {
                 const filteredChat = chat.lastMessage(chats)
                 setData(filteredChat)
             } else {
-                throw new Error(`Failed to fetch :(`)
+                throw new Error(`Failed to fetch chat(s) :(`)
             }
         } catch(err){
             setError(err)

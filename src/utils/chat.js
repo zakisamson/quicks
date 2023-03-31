@@ -1,20 +1,29 @@
 const filteredChatLog = (friends) => {
-    return friends.filter(friend => friend.chatlog.length)
-}
+  return friends.filter((friend) => friend.chatlog.length);
+};
 
 const lastMessage = (data) => {
-    const filteredChat = filteredChatLog(data.friends)
-    let lastMessaged = []
-    for(let chat of filteredChat){
-        for(let friend of data.profile.friends){
-            if(chat.id === friend.id){
-                lastMessaged.push(friend)
-            }
-        }
+  const filteredChat = filteredChatLog(data.friends);
+  let lastMessaged = [];
+  for (let chat of filteredChat) {
+    for (let friend of data.profile.friends) {
+      if (chat.id === friend.id) {
+        lastMessaged.push(friend);
+      }
     }
-    return lastMessaged
-}
+  }
+  return lastMessaged;
+};
+
+const loadMessage = (data, chatId) => {
+  for (let chat of data.friends) {
+    if (chat.id === chatId) {
+      return chat.chatlog;
+    }
+  }
+};
 
 export const chat = {
-    lastMessage
-}
+  lastMessage,
+  loadMessage,
+};
