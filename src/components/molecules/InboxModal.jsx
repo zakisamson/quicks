@@ -8,7 +8,10 @@ import ActionModalLayout from '../layout/ActionModalLayout'
 function InboxModal() {
     const { data, loading, error } = useChat()
 
-    console.log(data, loading)
+    const handleShowChat = (id) => {
+        return console.log(id)
+    }
+
     return (
         <ActionModalLayout>
             {
@@ -28,7 +31,9 @@ function InboxModal() {
                                         user={[chats.name]}
                                         chatTitle={chats.name}
                                         date={chats.latest_timestamp}
-                                        lastMessage={chats.lastChat} />
+                                        lastMessage={chats.lastChat} 
+                                        onClick={()=> handleShowChat(chats.id)}
+                                        />
                                 )
                             }
                         </>

@@ -18,7 +18,7 @@
           "name": "Bob",
           "picture": "https://image.ibb.co/gSyTOb/bob_1.jpg",
           "latest_timestamp": "12:30 AM",
-          "lastChat": "Alright"
+          "lastChat": "Sections 1.10.32 and 1.10.33 from 'de Finibus Bonorum et Malorum' by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham"
         },
         {
           "id": 4,
@@ -123,12 +123,12 @@
             "text":
               "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet",
             "timestamp": "10:03 AM",
-            "side": "left",
+            "side": "right",
             "message_id": 4
           },
           {
             "text":
-              "Or maybe not, let me check logistics and call you. Give me sometime",
+              "Did you recieve the package I sent you the other day?" ,
             "timestamp": "10:03 AM",
             "side": "left",
             "message_id": 3
@@ -140,9 +140,9 @@
             "message_id": 2
           },
           {
-            "text": "Did you recieve the package I sent you the other day?",
+            "text": "Or maybe not, let me check logistics and call you. Give me sometime",
             "timestamp": "10:00 AM",
-            "side": "left",
+            "side": "right",
             "message_id": 1
           }
         ]
