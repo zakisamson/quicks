@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { chat } from '../utils/chat'
 
 function useChat() {
     const [data, setData] = useState({})
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
-    const fetchChat = async () =>{
-        try{
+    const fetchChat = async () => {
+        try {
             setLoading(true)
             const response = await fetch(`db.json`)
-            if(response.status === 200){
+            if (response.status === 200) {
                 const chats = await response.json()
-                const filteredChat = chat.lastMessage(chats)
-                setData(filteredChat)
+                setData(chats)
             } else {
                 throw new Error(`Failed to fetch chat(s) :(`)
             }
-        } catch(err){
+        } catch (err) {
             setError(err)
-        } finally{
+        } finally {
             setLoading(false)
         }
     }
@@ -27,8 +25,8 @@ function useChat() {
     useEffect(() => {
         fetchChat()
     }, [])
-    
-    return {data, loading, error}
+
+    return { data, loading, error }
 }
 
 export default useChat

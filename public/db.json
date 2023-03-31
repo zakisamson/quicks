@@ -114,6 +114,20 @@
         "chatlog": [
           {
             "text":
+              "Tell me princess now when did you last let your heart desire",
+            "timestamp": "10:05 AM",
+            "side": "left",
+            "message_id": 7
+          },
+          {
+            "text":
+              "I can show you the world, shining shimmering splendid",
+            "timestamp": "10:05 AM",
+            "side": "left",
+            "message_id": 6
+          },
+          {
+            "text":
               "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour",
             "timestamp": "10:05 AM",
             "side": "left",

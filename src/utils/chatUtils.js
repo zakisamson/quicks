@@ -18,12 +18,13 @@ const lastMessage = (data) => {
 const loadMessage = (data, chatId) => {
   for (let chat of data.friends) {
     if (chat.id === chatId) {
-      return chat.chatlog;
+      console.log(chat.chatlog.sort((a,b) => a.message_id - b.message_id))
+      return chat.chatlog
     }
   }
 };
 
-export const chat = {
+export const chatUtils = {
   lastMessage,
   loadMessage,
 };
