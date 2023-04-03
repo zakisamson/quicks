@@ -26,7 +26,7 @@ function useChat() {
         fetchChat()
     }, [])
 
-    return { data, loading, error }
+    return { data, loading, error, setData }
 }
 
 export default useChat

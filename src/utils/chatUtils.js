@@ -18,20 +18,26 @@ const lastMessage = (data) => {
 const loadMessage = (data, chatId) => {
   for (let chat of data.friends) {
     if (chat.id === chatId) {
-      return chat.chatlog.sort((a,b) => a.message_id - b.message_id)
+      return chat.chatlog.sort((a, b) => a.message_id - b.message_id);
     }
   }
 };
 
 const checkSameSide = (current, previous) => {
-  if(!previous) return false
-  if(current.side === previous.side){
-    return true
+  if (!previous) return false;
+  if (current.side === previous.side) {
+    return true;
   }
-}
+};
+
+const findProfileFriendsLastChat = (data, id) => {
+  const friend = data.profile.friends.find((friend) => friend.id === id);
+  return friend;
+};
 
 export const chatUtils = {
   lastMessage,
   loadMessage,
-  checkSameSide
+  checkSameSide,
+  findProfileFriendsLastChat,
 };

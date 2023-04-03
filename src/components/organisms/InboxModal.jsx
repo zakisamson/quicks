@@ -14,14 +14,15 @@ function InboxModal() {
         chatId: null,
         roomName: null
     })
-    const { data, loading, error } = useChat()
+    
+    const { data, loading, error, setData } = useChat()
 
     const handleOpenChatRoom = (id, name) => {
         setChatRoom({ isOpen: true, chatId: id, roomName: name })
     }
 
     return (
-        <ChatContext.Provider value={{ data, loading, error, chatRoom, setChatRoom }}>
+        <ChatContext.Provider value={{ data, setData, loading, error, chatRoom, setChatRoom }}>
             <ActionModalLayout>
                 {loading && <InboxLoader />}
                 {!loading && error && <span>{error}</span>}
