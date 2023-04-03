@@ -2,6 +2,7 @@ import React from 'react'
 import ChatBubble from '../atoms/ChatBubble'
 import { chatUtils } from '../../utils/chatUtils'
 import ChatRoomHeader from '../atoms/ChatRoomHeader'
+import ChatRoomInput from './ChatRoomInput'
 
 function ChatRoom({ data, chatRoomId, name }) {
     return (
@@ -16,6 +17,7 @@ function ChatRoom({ data, chatRoomId, name }) {
                     })
                 }
             </div>
+            <ChatRoomInput />
         </div>
     )
 }

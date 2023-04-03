@@ -1,13 +1,12 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import useChat from '../../hooks/useChat'
 import InboxLoader from '../atoms/InboxLoader'
 import InboxPreview from '../atoms/InboxPreview'
 import InboxSearch from '../atoms/InboxSearch'
 import ActionModalLayout from '../layout/ActionModalLayout'
 import { chatUtils } from '../../utils/chatUtils'
-import ChatBubble from '../atoms/ChatBubble'
 import ChatContext from '../../utils/ChatContext'
-import ChatRoom from './ChatRoom'
+import ChatRoom from '../molecules/ChatRoom'
 
 function InboxModal() {
     const [chatRoom, setChatRoom] = useState({

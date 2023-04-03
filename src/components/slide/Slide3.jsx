@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import InboxSearch from '../atoms/InboxSearch'
 import QuickButton from '../atoms/QuickButton'
 import ActionModalLayout from '../layout/ActionModalLayout'
-import InboxModal from '../molecules/InboxModal'
+import InboxModal from '../organisms/InboxModal'
 
 function Slide3() {
     const [showSubMenu, setShowSubMenu] = useState(false)
