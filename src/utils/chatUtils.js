@@ -23,7 +23,15 @@ const loadMessage = (data, chatId) => {
   }
 };
 
+const checkSameSide = (current, previous) => {
+  if(!previous) return false
+  if(current.side === previous.side){
+    return true
+  }
+}
+
 export const chatUtils = {
   lastMessage,
   loadMessage,
+  checkSameSide
 };

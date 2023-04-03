@@ -3,10 +3,10 @@ import useChat from '../../hooks/useChat'
 import InboxLoader from '../atoms/InboxLoader'
 import InboxPreview from '../atoms/InboxPreview'
 import InboxSearch from '../atoms/InboxSearch'
-import ActionModalLayout from '../layout/ActionModalLayout'
 import { chatUtils } from '../../utils/chatUtils'
 import ChatContext from '../../utils/ChatContext'
 import ChatRoom from '../molecules/ChatRoom'
+import ActionModalLayout from '../layout/actionModalLayout'
 
 function InboxModal() {
     const [chatRoom, setChatRoom] = useState({
