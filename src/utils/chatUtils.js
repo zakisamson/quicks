@@ -18,8 +18,7 @@ const lastMessage = (data) => {
 const loadMessage = (data, chatId) => {
   for (let chat of data.friends) {
     if (chat.id === chatId) {
-      console.log(chat.chatlog.sort((a,b) => a.message_id - b.message_id))
-      return chat.chatlog
+      return chat.chatlog.sort((a,b) => a.message_id - b.message_id)
     }
   }
 };

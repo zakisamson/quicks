@@ -5,28 +5,24 @@ import InboxPreview from '../atoms/InboxPreview'
 import InboxSearch from '../atoms/InboxSearch'
 import ActionModalLayout from '../layout/ActionModalLayout'
 import { chatUtils } from '../../utils/chatUtils'
-
-const ChatContext = createContext([])
+import ChatBubble from '../atoms/ChatBubble'
+import ChatContext from '../../utils/ChatContext'
+import ChatRoom from './ChatRoom'
 
 function InboxModal() {
     const [chatRoom, setChatRoom] = useState({
         isOpen: false,
-        chatId: null
+        chatId: null,
+        roomName: null
     })
     const { data, loading, error } = useChat()
 
-    const handleOpenChatRoom = (id) => {
-        setChatRoom({ isOpen: true, chatId: id })
+    const handleOpenChatRoom = (id, name) => {
+        setChatRoom({ isOpen: true, chatId: id, roomName: name })
     }
-
-    const handleCloseChatRoom = () => {
-        setChatRoom({ isOpen: false, chatId: null })
-    }
-
-    
 
     return (
-        <ChatContext.Provider value={{ data, loading, error }}>
+        <ChatContext.Provider value={{ data, loading, error, chatRoom, setChatRoom }}>
             <ActionModalLayout>
                 {loading && <InboxLoader />}
                 {!loading && error && <span>{error}</span>}
@@ -41,37 +37,14 @@ function InboxModal() {
                                     chatTitle={chats.name}
                                     date={chats.latest_timestamp}
                                     lastMessage={chats.lastChat}
-                                    onClick={() => handleOpenChatRoom(chats.id)}
+                                    onClick={() => handleOpenChatRoom(chats.id, chats.name)}
                                 />
                             )
                         }
                     </>
                 }
                 {!loading && !error && chatRoom.isOpen &&
-                    <div className='w-full flex flex-col gap-5 over '>
-                        <button onClick={() => handleCloseChatRoom()}>Back</button>
-                        {
-                            chatUtils.loadMessage(data, chatRoom.chatId).map((chat, index) => {
-                                
-                                return chat.side === "left" ?
-                                    <div
-                                        key={index}
-                                        className='mr-auto p-4 rounded-md text-left w-4/5 bg-orange-300'
-                                    >
-                                        <p>{chat.text}</p>
-                                        <p>{chat.timestamp}</p>
-                                    </div>
-                                    :
-                                    <div
-                                        key={index}
-                                        className='ml-auto p-4 rounded-md text-left w-4/5 bg-blue-300'
-                                    >
-                                        <p>{chat.text}</p>
-                                        <p>{chat.timestamp}</p>
-                                    </div>
-                            })
-                        }
-                    </div>
+                    <ChatRoom data={data} chatRoomId={chatRoom.chatId} name={chatRoom.roomName} />
                 }
             </ActionModalLayout>
         </ChatContext.Provider>
